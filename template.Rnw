@@ -163,20 +163,39 @@ hist(rexp(100))
 Figure 1: A histogram of random exponentially distributed
 data, n = 100.
 \columnbreak
+\subsection{Tables}
+Below, we load and take a peek at some data about the death
+rates per 1000 in Virginia in 1940 \citep{molyneaux1947differences}.
+<<size="scriptsize">>=
+data(VADeaths)
+head(VADeaths) # Take a peek of the data
+@
+  If we want to print this nicely, we can do so using the
+xtable package \citep{xtable}, which we can reference
+using the label (Table \ref{VADeaths.tab}).
+<<size="scriptsize">>=
+library(xtable)
+sleep.table<-xtable(VADeaths ,
+                    label = "VADeaths.tab",
+                    caption = "Death Rates per 1000 in Virginia (1940).")
+@
+<<echo=FALSE, results="asis">>=
+print(sleep.table,
+table.placement = "H", include.rownames=FALSE, size = "small")
+@
+\pagebreak
 
 
-\section{Discussion}
- You should objectively evaluate the evidence you found in the data. Do not embellish or wishterpet (my made-up phase for making an interpretation you, or the researcher, wants to be true without the data \emph{actually} supporting it). Connect your findings to the existing information you provided in the Introduction.
 
-Finally, provide some concluding remarks that tie together the entire paper. Think of the last part of the results as abstract-like. Tell the reader what they just consumed -- what's the takeaway message?
+\citep{palmerpenguins}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{2em}
 
-\noindent\textbf{Bibliography:} Note that when you add citations to your bib.bib file \emph{and}
-you cite them in your document, the bibliography section will automatically populate here.
+
 
 \begin{tiny}
 \bibliography{bib}
@@ -189,7 +208,8 @@ you cite them in your document, the bibliography section will automatically popu
 \newpage
 \onecolumn
 \section{Appendix}
+Below is a table from a paper I’m currently working on. Without the analysis object in R, I have to create this table myself.
 
-If you have anything extra, you can add it here in the appendix. This can include images or tables that don't work well in the two-page setup, code snippets you might want to share, etc.
+
 
 \end{document}
