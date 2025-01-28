@@ -111,8 +111,8 @@ We can write a one line equation that is centered like this
 \begin{center}
 \[\widehat{y_i} = \beta_0 + \beta_1 x_{1i}+ \beta_2 x_{2i} + \beta_3 x_{1i} x_{2i} + \epsilon_i.\]
 \end{center}
-This can be written as text, as $\widehat{y_i} = \beta_0 + \beta_1 x_{1i}+ \beta_2 x_{2i} + \beta_3 x_{1i} x_{2i} + \epsilon_i$ using as well.
-  When we need to show multiple steps, we can create a
+This can be written as text, as $\widehat{y_i} = \beta_0 + \beta_1 x_{1i}+ \beta_2 x_{2i} + \beta_3 x_{1i} x_{2i} + \epsilon_i$ using as well.\\
+\indent When we need to show multiple steps, we can create a
 multi-line equation that is centered like this:
 \begin{align*}
 8(x - 5) + x&= 9(x - 5) + 5\\
@@ -121,9 +121,8 @@ multi-line equation that is centered like this:
       9x&= 9x \tag{Adding 40 to both sides}\\
         x&= x \tag{Dividing both sides by 9}
 \end{align*}
-
-The equality holds for any x.
-  Note, I did a page break here so that the next section
+The equality holds for any x.\\
+\indent Note, I did a page break here so that the next section
 started on a clean page.
 \pagebreak
 \subsection{Running R Code}
@@ -156,12 +155,22 @@ result.with.error
 The result is \Sexpr{round(result.with.error,6)}. Note that I did not type the result, but I used the \verb|Sexpr{}| command.
 \subsection{Plotting}
 We can also plot with R.
-<<size="scriptsize">>=
-#Plot a histogram of random exponential data
-hist(rexp(100))
+<<Hist, eval=FALSE, size="scriptsize", warning=FALSE, message=FALSE>>=
+  #Plot a histogram of random exponential data
+  hist(rexp(100))
 @
-Figure 1: A histogram of random exponentially distributed
-data, n = 100.
+  
+\begin{figure}[H]
+\begin{center}
+<<echo=FALSE>>=
+  <<Hist>>
+  @
+  
+\end{center}
+\caption{A histogram of random exponentially distributed data, n = 100.}
+\label{Figure 1}
+\end{figure}
+
 \columnbreak
 \subsection{Tables}
 Below, we load and take a peek at some data about the death
@@ -183,11 +192,10 @@ sleep.table<-xtable(VADeaths ,
 print(sleep.table,
 table.placement = "H", include.rownames=FALSE, size = "small")
 @
-\pagebreak
 
 
 
-\citep{palmerpenguins}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -209,6 +217,49 @@ table.placement = "H", include.rownames=FALSE, size = "small")
 \onecolumn
 \section{Appendix}
 Below is a table from a paper I’m currently working on. Without the analysis object in R, I have to create this table myself.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{lrrrrr}\hline
+Term & SS (Type III) & df & F & p-value & $\epsilon_p^2$\\\hline
+(Intercept) &4.95 &1.00 &5.37 &0.0209\\
+White-Poor (Z) &3.17 &1.00 &3.44 &0.0642 &0.02\\
+Zero-Sum (Z) &17.96 &1.00 &19.48 &<0.0001 &0.03\\
+Education (Z) &0.39 &1.00 &0.42 &0.5161 &0.00\\
+Income (Z) &0.16 &1.00 &0.17 &0.6817 &0.00\\
+Democrat &9.60 &1.00 &10.42 &0.0013 &0.02\\
+Black-Poor (Z) &1.92 &1.00 &2.08 &0.1496 &0.00\\
+White-Poor (Z)×Zero-Sum (Z) &7.96 &1.00 &8.63 &0.0034 &0.01\\
+Residuals &506.92 &550.00 \\\hline
+\end{tabular} 
+\label{Table 2}
+\caption{ANOVA table for Case Study I.}
+\end{center}
+\end{table}
+
+
+  The palmerpenguins package for R \citep{palmerpenguins} provides data on adult foraging penguins near Palmer Station,
+Antarctica. Figure (Figure \ref{Figure 2}) is too big to fit nicely in our column-based-template above, so I’ve placed it here in the abstract by
+saving it and presenting it scaled to 0.75.
+
+
+
+<<results='hide', size="scriptsize">>=
+library(palmerpenguins)
+pdf("figure/penguins.pdf", width = 8, height = 5)
+plot(penguins)
+dev.off()
+@
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.75]{figure/penguins.pdf}
+\caption{Data on adult foraging penguins near Palmer Station, Antarctica.}
+\label{Figure 2}
+\end{center}
+\end{figure}
+
+
 
 
 
