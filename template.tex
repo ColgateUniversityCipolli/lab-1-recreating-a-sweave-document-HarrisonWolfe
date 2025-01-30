@@ -225,11 +225,11 @@ code.
 \hldef{result.with.error}
 \end{alltt}
 \begin{verbatim}
-## [1] 41.08931
+## [1] 40.85672
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
-The result is 41.089315. Note that I did not type the result, but I used the \verb|Sexpr{}| command.
+The result is 40.856721. Note that I did not type the result, but I used the \verb|Sexpr{}| command.
 \subsection{Plotting}
 We can also plot with R.
 \begin{knitrout}\scriptsize
@@ -287,7 +287,7 @@ using the label (Table \ref{VADeaths.tab}).
 \end{kframe}
 \end{knitrout}
 % latex table generated in R 4.4.2 by xtable 1.8-4 package
-% Tue Jan 28 18:41:21 2025
+% Thu Jan 30 08:58:41 2025
 \begin{table}[H]
 \centering
 \begingroup\small
@@ -339,7 +339,7 @@ Below is a table from a paper I’m currently working on. Without the analysis o
 Term & SS (Type III) & df & F & p-value & $\epsilon_p^2$\\\hline
 (Intercept) &4.95 &1.00 &5.37 &0.0209\\
 White-Poor (Z) &3.17 &1.00 &3.44 &0.0642 &0.02\\
-Zero-Sum (Z) &17.96 &1.00 &19.48 &<0.0001 &0.03\\
+Zero-Sum (Z) &17.96 &1.00 &19.48 &$<$0.0001 &0.03\\
 Education (Z) &0.39 &1.00 &0.42 &0.5161 &0.00\\
 Income (Z) &0.16 &1.00 &0.17 &0.6817 &0.00\\
 Democrat &9.60 &1.00 &10.42 &0.0013 &0.02\\
@@ -353,8 +353,8 @@ Residuals &506.92 &550.00 \\\hline
 \end{table}
 
 
-  The palmerpenguins package for R \citep{palmerpenguins} provides data on adult foraging penguins near Palmer Station,
-Antarctica. Figure (Figure \ref{Figure 2}) is too big to fit nicely in our column-based-template above, so I’ve placed it here in the abstract by
+  The \texttt{palmerpenguins} package for R \citep{palmerpenguins} provides data on adult foraging penguins near Palmer Station,
+Antarctica. Figure \ref{Figure 2} is too big to fit nicely in our column-based-template above, so I’ve placed it here in the abstract by
 saving it and presenting it scaled to 0.75.
 
 
